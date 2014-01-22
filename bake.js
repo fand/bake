@@ -15,8 +15,6 @@ var realSize;     // フォントサイズ
 var ratio;        // アンチエイリアスの為の拡大率
 var fontSize;     // 拡大後のフォントサイズ　描画に使う
 var subFontSize;  // サブ文字のサイズ
-var subDx = [];   // サブ文字の微調整, x座標
-var subDy = [];   // y座標
 var mainColor;    // 影の色
 var blur;
 var subColor;
@@ -38,41 +36,14 @@ function render() {
 function getForm() {
 
     text= $("#mainText").val();
-    subText = [];
-    subDx = [];
-    subDy = [];
 
     realSize = $("#mainSize").val();
     ratio = realSize / 100;
     fontSize = realSize;
     subFontSize = fontSize * 0.1;
 
-    var gap = text.length - $(".subText").size();
-    if (gap < 1) {
-        // サブ要素が多すぎる場合
-        while (gap++ < 1) {
-            $(".subText:last").remove();
-        }
-    }
-    else {
-        //サブ要素が足りない場合
-        while (gap-- > 1) {
-            $("#subArea").append(
-                "<div class='subText'>サブ文字 "+ (text.length - gap) +"<input type='text' id='sub" + (text.length - gap - 1) + "' value='ガタリ' onkeyup='render()'>x座標<input type='number'  id='dx" + (text.length - gap - 1) + "' value='50' onMouseUp='render()'>y座標<input type='number'  id='dy"+ (text.length - gap - 1) +"' value='50' onMouseUp='render()'></div>"
-            );
-        }
-    }
+    subText = $("#subText").val().split(/\s/);
 
-    for (var i = 0; i < text.length - 1; i++) {
-        if ($("#sub"+i).val() != null) {
-            subText.push($("#sub" + i).val());
-        }
-        else {
-            subText.push(' ');
-        }
-        subDx.push(($("#dx" + i).val() - 50) * ratio);
-        subDy.push(($("#dy" + i).val() - 50) * ratio);
-    }
     mainColor = '#' + $("#mainColor").val();
     subColor  = '#' + $("#subColor").val();
     blur = $("#blur").val();
@@ -174,6 +145,7 @@ function drawTextWithBlur(text, x, y, dx, size, blurSize, blurNum) {
 
         context.setTransform(1, 0, 0, 1, 0, 0);
 
+        context.shadowBlur = 0;
         context.restore();
     }
 }

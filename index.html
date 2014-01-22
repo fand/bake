@@ -22,48 +22,13 @@
     </div>
 
     <div class="label-input">
-      <label for="mainSize">文字サイズ</label>
-      <input type="number" id="mainSize" value="200"  onInput="render()" max="300" min="1" />
+      <label for="subText">サブ文字</label>
+      <input type="text" id="subText" value="バケモノ ガタリ" onKeyUp="render()" />
     </div>
 
-    <div class="label-input"></div>
-
-    <div id="subArea">
-      <div class="subText">
-
-        <div class="label-input">
-          <label for="sub0">サブ文字 1</label>
-          <input type="text" id="sub0" value="バケモノ" onKeyUp="render()" />
-        </div>
-
-        <div class="label-input">
-          <label for="dx0">x座標</label>
-          <input type="number"  id="dx0" value="22" onMouseUp="render()" />
-        </div>
-
-        <div class="label-input">
-          <label for="dy0">y座標</label>
-          <input type="number"  id="dy0" value="47" onMouseUp="render()" />
-        </div>
-      </div>
-
-      <div class="subText">
-
-        <div class="label-input">
-          <label for="sub1">サブ文字 2</label>
-          <input type="text" id="sub1" value="ガタリ" onKeyUp="render()" />
-        </div>
-
-        <div class="label-input">
-          <label for="dx1">x座標</label>
-          <input type="number"  id="dx1" value="50" onMouseUp="render()" />
-        </div>
-
-        <div class="label-input">
-          <label for="dy1">y座標</label>
-          <input type="number"  id="dy1" value="50" onMouseUp="render()">
-        </div>
-      </div>
+    <div class="label-input">
+      <label for="mainSize">文字サイズ</label>
+      <input type="number" id="mainSize" value="200"  onInput="render()" max="300" min="1" />
     </div>
 
     <div class="label-input">
@@ -77,7 +42,7 @@
     </div>
 
     <div class="label-input">
-      <label for="subColor">サブ文字の色</label>
+      <label for="subColor">サブ文字色</label>
       <input class="color" id="subColor" value="#FFEE44" onChange="render()" />
     </div>
 
