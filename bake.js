@@ -30,14 +30,10 @@ function init(){
     render();
 }
 
-
-
 function render() {
     getForm();
     draw();
 }
-
-
 
 function getForm() {
 
@@ -82,8 +78,6 @@ function getForm() {
     blur = $("#blur").val();
 }
 
-
-
 function draw() {
 
     //キャンバスの位置の調整
@@ -107,7 +101,7 @@ function draw() {
     context.fillStyle = subColor;
     context.shadowColor = mainColor;
     for (var i = 0; i < subText.length; i++) {
-        var x = fontSize * 0.82 + fontSize * 1.28 * i;
+        var x = fontSize * 1.2 * (i + 1) - subFontSize * subText[i].length;
         var y = fontSize * 0.8;
         drawTextWithBlur(subText[i], x, y, subFontSize * 0.8, subFontSize, fontSize, blur);
     }
@@ -121,7 +115,7 @@ function draw() {
     context.font = fontSize * 0.3 + "px 'ＭＳ ゴシック'";
     context.fillStyle = subColor;
     for (var i = 0; i < subText.length; i++) {
-        var x = fontSize * 0.82 + fontSize * 1.28 * i;
+        var x = fontSize * 1.2 * (i + 1) - subFontSize * subText[i].length;
         var y = fontSize * 0.8;
         drawText(subText[i], x, y, subFontSize * 0.8, subFontSize);
     }
@@ -131,7 +125,7 @@ function draw() {
     gradient.addColorStop(0, "rgba(255,255,255,0)"); //透明
     gradient.addColorStop(1, "rgba(255,255,255,1)"); //白
     context.fillStyle = gradient;
-    context.fillRect(0, 0, (text.length + 1) * fontSize, canvas.height);
+    context.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function saveData(){
