@@ -1,56 +1,100 @@
 <!DOCTYPE html><meta charset="UTF-8">
-<html>
+
 <head>
-<title>化物語風ロゴジェネレーター</title>
-<link rel="stylesheet" type="text/css" href="bake.css">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="bake.js"></script>
-<script type="text/javascript" src="jscolor/jscolor.js"></script>
+  <title>化物語風ロゴジェネレーター</title>
+  <link rel="stylesheet" type="text/css" href="bake.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="jscolor/jscolor.js"></script>
+  <script type="text/javascript" src="bake.js"></script>
 </head>
 <body onLoad="init()">
-<h1>化物語風ロゴジェネレーター</h1>
+  <h1>化物語風ロゴジェネレーター</h1>
 
-<div id="wrapper">
-<canvas id="canvas" width="100" height="100"></canvas>
-</div>
+  <div id="wrapper">
+    <canvas id="canvas" width="100" height="100"></canvas>
+  </div>
 
-<form name="form1" method="post"> 
-メイン文字 <input type="text" id="mainText" value="化物語" maxlength="5" onkeyup="render()">文字サイズ<input type="number" id="mainSize" value="200"  onInput="render()" max="300" min="1"><br>
-<div id="subArea">
-<div class="subText">サブ文字 1<input type="text" id="sub0" value="バケモノ" onKeyUp="render()">x座標<input type="number"  id="dx0" value="22" onMouseUp="render()">y座標<input type="number"  id="dy0" value="47" onMouseUp="render()"></div> 
-<div class="subText">サブ文字 2<input type="text" id="sub1" value="ガタリ" onKeyUp="render()">x座標<input type="number"  id="dx1" value="50"onMouseUp="render()">y座標<input type="number"  id="dy1" value="50" onMouseUp="render()"></div>
-</div>
-影の濃さ 　<input type="number" id="blur" value="3" max="10" min="0" onInput="render()">影の色<input class="color" id="mainColor" value="#FF2846" onChange="render()">サブ文字の色<input class="color" id="subColor" value="#FFEE44" onChange="render()"><br> 
-<input type="button" class="button" value="PNGで保存" onclick="saveData()"> 
-</form>
+  <form name="form1" method="post">
+    <div class="label-input">
+      <label for="mainText">メイン文字</label>
+      <input type="text" id="mainText" value="化物語" onkeyup="render()" />
+    </div>
 
-<br><br><br>
-<div id="hosoku">
-アニメ『化物語』風のロゴ画像を生成するサービスです。<br>
-HTML5のcanvasで描画しています。winのchromeとiPhone動作確認しています。<br>
-生成した画像はご自由にお使いください。<br><br>
-制限
-<ul>
-<li>メイン文字は５文字以内</li>
-<li>文字サイズは300px以下</li>
-<li>影の濃さは10以下</li>
-</ul>
+    <div class="label-input">
+      <label for="mainSize">文字サイズ</label>
+      <input type="number" id="mainSize" value="200"  onInput="render()" max="300" min="1" />
+    </div>
 
-不足点
-<ul>
-<li>コードが汚い</li>
-<li>文字が汚い　大きめにレンダリングして縮小、っていう方法を取ろうとしたけどcanvasの拡大縮小がわからない</li>
-<li>文字位置の調整が必要</li>
-<li>コードが汚い</li>
-</ul>
+    <div class="label-input"></div>
+
+    <div id="subArea">
+      <div class="subText">
+
+        <div class="label-input">
+          <label for="sub0">サブ文字 1</label>
+          <input type="text" id="sub0" value="バケモノ" onKeyUp="render()" />
+        </div>
+
+        <div class="label-input">
+          <label for="dx0">x座標</label>
+          <input type="number"  id="dx0" value="22" onMouseUp="render()" />
+        </div>
+
+        <div class="label-input">
+          <label for="dy0">y座標</label>
+          <input type="number"  id="dy0" value="47" onMouseUp="render()" />
+        </div>
+      </div>
+
+      <div class="subText">
+
+        <div class="label-input">
+          <label for="sub1">サブ文字 2</label>
+          <input type="text" id="sub1" value="ガタリ" onKeyUp="render()" />
+        </div>
+
+        <div class="label-input">
+          <label for="dx1">x座標</label>
+          <input type="number"  id="dx1" value="50" onMouseUp="render()" />
+        </div>
+
+        <div class="label-input">
+          <label for="dy1">y座標</label>
+          <input type="number"  id="dy1" value="50" onMouseUp="render()">
+        </div>
+      </div>
+    </div>
+
+    <div class="label-input">
+      <label for="blur">影の濃さ</label>
+      <input type="number" id="blur" value="3" max="10" min="0" onInput="render()" />
+    </div>
+
+    <div class="label-input">
+      <label for="mainColor">影の色</label>
+      <input class="color" id="mainColor" value="#FF2846" onChange="render()" />
+    </div>
+
+    <div class="label-input">
+      <label for="subColor">サブ文字の色</label>
+      <input class="color" id="subColor" value="#FFEE44" onChange="render()" />
+    </div>
+
+    <input type="button" class="button" value="PNGで保存" onclick="saveData()" />
+  </form>
 
 
-2012/02/05 フォームの変更に追従するようにしました カラーピッカーを<a href="http://jscolor.com/">jscolor</a>に変更しました<br>
-2012/02/04 <a href="http://www.html5.jp/library/cpick.html">カラーピッカー.js</a>を追加しました<br>
-</div>
-<hr>
-不安 Twitter:<a href="http://twitter.com/fand">@fand</a><br>
-<a href="http://gmork.2-d.jp/">グモルク</a>
+  <div id="hosoku">
+    アニメ『化物語』風のロゴ画像を生成するサービスです。<br>
+    HTML5のcanvasで描画しています。winのchromeとiPhone動作確認しています。<br>
+    生成した画像はご自由にお使いください。<br><br>
+  </div>
+
+  <footer>
+    不安 Twitter:<a href="http://twitter.com/fand">@fand</a><br
+                                                               <a href="http://gmork.in/">グモルク</a>
+  </footer>
 </body>
 
 <script>
@@ -63,4 +107,3 @@ HTML5のcanvasで描画しています。winのchromeとiPhone動作確認して
   ga('send', 'pageview');
 
 </script>
-</html>

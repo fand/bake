@@ -1,69 +1,73 @@
-body{
-  text-align: center;
-  font-size:12px;
-  color: #888;
-  background-color:#F5F5F5;
+body {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    background-color: #fafafa;
 }
 
 a, a:visited {
-  color:#666;
+    color: #666;
 }
 
 a:hover, a:active {
-  color:#9CF;
+    color: #9cf;
 }
 
-canvas{
-  background-color:#FFFFFF;
+canvas {
+    background-color: #fff;
 }
 
-#wrapper{
-  min-height:320px;
+#wrapper {
+    min-height: 320px;
 }
 
 form {
-  text-align: left;
-  margin:0 auto;
-  width: 600px;
+    text-align: left;
+    margin: 0 auto;
+    width: 420px;
 }
 
 form input {
-  width: 100px;
-  border:1px solid #777;
-  margin:5px 10px;
-  padding: 5px;
-  color: #666;
-  background: #fff;
-  border-radius: 3px;
-  border-color: #999;
+    width: 100px;
+    border: 1px solid #777;
+    margin: 5px 10px;
+    padding: 5px;
+    color: #666;
+    background: #fff;
+    border-radius: 3px;
+    border-color: #999;
 }
-.button{
-  width: 160px;
-  height:50px;
-  font-weight: bold;  
-  border:1px solid #777;
-  padding: 4px 10px;
-  margin: 5px 220px;
-  cursor: pointer;
-  color: #fff;
-  background:linear-gradient(#CCE, #7AB);
-  background: -moz-linear-gradient(top, #CCE, #7AB); /* Mozilla系 */
-  background: -webkit-gradient(linear, left top, left bottom, from(#CCE), to(#7AB)); /* Webkit系 */
+
+.label-input {
+    float: left;
+    width: 140px;
+    height: 60px;
 }
-.slider{
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	
-	width: 150px;
-	height: 4px;
-	padding: 0px;
+label {
+    display: block;
+    width: 100px;
+}
+
+.button {
+    width: 120px;
+    height: 40px;
+    font-weight: bold;
+    border: 1px solid #777;
+    padding: 4px 10px;
+    margin: 5px 150px;
+    cursor: pointer;
+    color: #fff;
+    background: #09f;
+}
+.button:hover {
+    background: #0df;
 }
 
 #hosoku {
-  text-align: left;
-  width:400px;
-  color: #AAA;
-  font-size:10px;
-  margin: 0 auto;
+    text-align: left;
+    width: 400px;
+    color: #AAA;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 20px auto;
 }
