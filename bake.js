@@ -19,8 +19,6 @@ var mainColor;    // 影の色
 var blur;
 var subColor;
 
-
-
 function init(){
     canvas = document.getElementById("canvas");
     context = canvas.getContext("2d");
@@ -34,8 +32,7 @@ function render() {
 }
 
 function getForm() {
-
-    text= $("#mainText").val();
+    text = $("#mainText").val();
 
     realSize = $("#mainSize").val();
     ratio = realSize / 100;
@@ -45,12 +42,11 @@ function getForm() {
     subText = $("#subText").val().split(/\s/);
 
     mainColor = '#' + $("#mainColor").val();
-    subColor  = '#' + $("#subColor").val();
+    subColor = '#' + $("#subColor").val();
     blur = $("#blur").val();
 }
 
 function draw() {
-
     //キャンバスの位置の調整
     if (fontSize < 210) {
         $("canvas").css("margin", (210 - fontSize) / 2 + "px");
@@ -100,7 +96,14 @@ function draw() {
 }
 
 function saveData(){
-    window.open( canvas.toDataURL() );
+    var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    var link = document.createElement('a');
+    link.href = image;
+    link.download = text + '.png';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 function drawText(text, x, y, dx, size){

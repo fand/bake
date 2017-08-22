@@ -3,10 +3,9 @@
 <head>
   <title>化物語風ロゴジェネレーター</title>
   <link rel="stylesheet" type="text/css" href="bake.css">
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <!-- <script src="jquery-2.0.3.min.js"></script> -->
-  <script type="text/javascript" src="jscolor/jscolor.js"></script>
-  <script type="text/javascript" src="bake.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js"></script>
+  <script type="text/javascript" src="./bake.js"></script>
 </head>
 <body onLoad="init()">
   <h1>化物語風ロゴジェネレーター</h1>
@@ -38,12 +37,12 @@
 
     <div class="label-input">
       <label for="mainColor">影の色</label>
-      <input class="color" id="mainColor" value="#FF2846" onChange="render()" />
+      <input class="jscolor" id="mainColor" value="#FF2846" onChange="render()" />
     </div>
 
     <div class="label-input">
       <label for="subColor">サブ文字色</label>
-      <input class="color" id="subColor" value="#FFEE44" onChange="render()" />
+      <input class="jscolor" id="subColor" value="#FFEE44" onChange="render()" />
     </div>
 
     <input type="button" class="button" value="PNGで保存" onclick="saveData()" />
@@ -52,13 +51,13 @@
 
   <div id="hosoku">
     アニメ『化物語』風のロゴ画像を生成するサービスです。<br>
-    HTML5のcanvasで描画しています。winのchromeとiPhone動作確認しています。<br>
+    HTML5のcanvasで描画しています。WindowsのchromeとiPhoneで動作確認しています。<br>
     生成した画像はご自由にお使いください。<br><br>
   </div>
 
   <footer>
-    不安 Twitter:<a href="http://twitter.com/fand">@fand</a><br>
-    <a href="http://gmork.in/">グモルク</a>
+    <a href="https://twitter.com/amagitakayosi">@amagitakayosi</a><br>
+    <a href="https://gmork.in/">gmork.in</a>
   </footer>
 </body>
 
@@ -70,5 +69,4 @@
 
   ga('create', 'UA-41787635-2', 'gmork.in');
   ga('send', 'pageview');
-
 </script>
